@@ -2,8 +2,9 @@ version: '2'
 
 services:
   openvpn:
-    build:
-      context: ./
+#    build:
+#      context: ./ # for Development
+    image: ichikawayukko/docker_ipv6
     restart: always
     volumes:
       - openvpn:/etc/openvpn
