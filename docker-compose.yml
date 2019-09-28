@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  openvpn:
+    build:
+      context: ./
+    restart: always
+    volumes:
+      - openvpn:/etc/openvpn
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    ports:
+      - "1194:1194/udp"
+    container_name: openvpn
+    devices:
+      - /dev/net/tun
+
+volumes:
+  openvpn:
+    driver: local
+
